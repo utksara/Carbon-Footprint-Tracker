@@ -20,7 +20,7 @@
     #include "carbon_network.h"
 int main() {
 
-    CarbonNetwork *carbonNetwork = new CarbonNetwork();
+    CarbonNetwork carbonNetwork("database1");
 
     /*
         Item being added : "bread"
@@ -28,25 +28,25 @@ int main() {
         Products of the item : {"pizza", "donut"}
         Processes that make this item : {"bakery"}
     */
-    carbonNetwork->addItem(
+    carbonNetwork.addItem(
                             "bread", 
                             {"flour", "yeast"}, 
                             {"pizza", "donut"}, 
                             {"bakery"}
                         );
-    carbonNetwork->showAllItems(); // show all the items added
-    carbonNetwork->setMadeFrom("flour", "wheat"); // setting the ingredients for flour
-    carbonNetwork->showItemDetails("bread");// showing item details of bread
+    carbonNetwork.showAllItems(); // show all the items added
+    carbonNetwork.setMadeFrom("flour", "wheat"); // setting the ingredients for flour
+    carbonNetwork.showItemDetails("bread");// showing item details of bread
 
-    carbonNetwork->addProcess("windmill"); // adding new process windmill
-    carbonNetwork->addProcess("regularMill"); 
-    carbonNetwork->setMadeIn("flour", {"windmill", "regularMill"}); // setting processes which can make flour
+    carbonNetwork.addProcess("windmill"); // adding new process windmill
+    carbonNetwork.addProcess("regularMill"); 
+    carbonNetwork.setMadeIn("flour", {"windmill", "regularMill"}); // setting processes which can make flour
 
-    carbonNetwork->setFootprintforProcess("windmill", 7); // setting footprint value for windmill
-    carbonNetwork->setFootprintforProcess("regularMill", 20);
-    carbonNetwork->setFootprintforItem("wheat" , 5);
-    carbonNetwork->setFootprintforItem("yeast" , 7);
-    carbonNetwork->setFootprintforProcess("bakery", 10);
-    std::cout << carbonNetwork->getFootPrint("bread") // displaying footprint value of bread
+    carbonNetwork.setFootprintforProcess("windmill", 7); // setting footprint value for windmill
+    carbonNetwork.setFootprintforProcess("regularMill", 20);
+    carbonNetwork.setFootprintforItem("wheat" , 5);
+    carbonNetwork.setFootprintforItem("yeast" , 7);
+    carbonNetwork.setFootprintforProcess("bakery", 10);
+    std::cout << carbonNetwork.getFootPrint("bread") // displaying footprint value of bread
 ```
 
